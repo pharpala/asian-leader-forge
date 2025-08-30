@@ -1,11 +1,21 @@
-import { Mail, MapPin, Phone, ExternalLink } from 'lucide-react';
+import { Mail, MapPin, Phone, ExternalLink, Instagram, Linkedin, Twitter, Facebook } from 'lucide-react';
 
 const Footer = () => {
   const quickLinks = [
     { name: 'About Us', href: '#about' },
     { name: 'Programs', href: '#programs' },
     { name: 'Events', href: '#events' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Gallery', href: '#gallery' },
+    { name: 'Team', href: '#team' },
+    { name: 'Blog', href: '#blog' },
+    { name: 'Apply Now', href: '#apply' },
+  ];
+
+  const socialLinks = [
+    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/ublasianleaders' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/ubl-asian-leaders' },
+    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/ublasianleaders' },
+    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/ublasianleaders' },
   ];
 
   const programs = [
@@ -29,7 +39,7 @@ const Footer = () => {
               through mentorship, networking, and professional development.
             </p>
             
-            <div className="space-y-3">
+            <div className="space-y-3 mb-6">
               <div className="flex items-center">
                 <Mail className="w-4 h-4 mr-3" />
                 <span className="text-primary-foreground/80">info@ublasianleaders.ca</span>
@@ -41,6 +51,28 @@ const Footer = () => {
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-3" />
                 <span className="text-primary-foreground/80">+1 (519) 824-4120</span>
+              </div>
+            </div>
+            
+            {/* Social Links */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
+              <div className="flex space-x-4">
+                {socialLinks.map((social) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors duration-300"
+                      aria-label={social.name}
+                    >
+                      <IconComponent className="w-5 h-5" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
